@@ -1,0 +1,131 @@
+Information: Updating design information... (UID-85)
+Warning: Design 'top' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : top
+Version: I-2013.12-SP5
+Date   : Sun Feb 12 23:02:54 2017
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+  Startpoint: pc1/pc_out_reg[2]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: pc1/pc_out_reg[0]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  pc1/pc_out_reg[2]/CK (DFF_X1)            0.00 #     0.00 r
+  pc1/pc_out_reg[2]/Q (DFF_X1)             0.19       0.19 r
+  pc1/pc_out[2] (pc)                       0.00       0.19 r
+  queen/pc[2] (queen)                      0.00       0.19 r
+  queen/U273/ZN (INV_X1)                   0.13       0.31 f
+  queen/U24/Z (XOR2_X1)                    0.15       0.47 r
+  queen/U244/ZN (INV_X1)                   0.06       0.53 f
+  queen/U188/ZN (NAND2_X1)                 0.06       0.59 r
+  queen/U58/ZN (NAND2_X1)                  0.03       0.62 f
+  queen/U59/Z (MUX2_X1)                    0.07       0.69 f
+  queen/U62/Z (MUX2_X1)                    0.07       0.75 f
+  queen/U63/Z (MUX2_X1)                    0.07       0.82 f
+  queen/U64/Z (MUX2_X1)                    0.09       0.91 f
+  queen/op[12] (queen)                     0.00       0.91 f
+  decoder/op[12] (decoder)                 0.00       0.91 f
+  decoder/U24/ZN (NOR2_X1)                 0.05       0.96 r
+  decoder/U23/ZN (AOI22_X1)                0.03       0.99 f
+  decoder/U22/ZN (NOR2_X1)                 0.05       1.05 r
+  decoder/pc_we (decoder)                  0.00       1.05 r
+  pc1/we (pc)                              0.00       1.05 r
+  pc1/U5/ZN (INV_X1)                       0.03       1.08 f
+  pc1/U4/ZN (NOR2_X1)                      0.11       1.19 r
+  pc1/U19/ZN (AOI22_X1)                    0.06       1.24 f
+  pc1/U18/ZN (INV_X1)                      0.03       1.28 r
+  pc1/pc_out_reg[0]/D (DFF_X1)             0.01       1.29 r
+  data arrival time                                   1.29
+
+  clock clk (rise edge)                   10.00      10.00
+  clock network delay (ideal)              0.00      10.00
+  clock uncertainty                       -0.02       9.98
+  pc1/pc_out_reg[0]/CK (DFF_X1)            0.00       9.98 r
+  library setup time                      -0.03       9.95
+  data required time                                  9.95
+  -----------------------------------------------------------
+  data required time                                  9.95
+  data arrival time                                  -1.29
+  -----------------------------------------------------------
+  slack (MET)                                         8.66
+
+
+1
+Loading db file '/proj/cad/freePDK45/lib/CCS/typical.db'
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : top
+Version: I-2013.12-SP5
+Date   : Sun Feb 12 23:02:56 2017
+****************************************
+
+
+Library(s) Used:
+
+    NangateOpenCellLibrary (File: /proj/cad/freePDK45/lib/CCS/typical.db)
+
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+Design        Wire Load Model            Library
+------------------------------------------------
+top                    5K_hvratio_1_1    NangateOpenCellLibrary
+
+
+Global Operating Voltage = 1.1  
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000ff
+    Time Units = 1ns
+    Dynamic Power Units = 1uW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+
+  Cell Internal Power  = 836.5276 uW   (90%)
+  Net Switching Power  =  90.1702 uW   (10%)
+                         ---------
+Total Dynamic Power    = 926.6978 uW  (100%)
+
+Cell Leakage Power     = 212.4202 uW
+
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)
+register         800.3937            2.3818        8.8353e+04          891.1180  (  78.23%)
+sequential         4.0939            2.3239        2.0194e+03            8.4372  (   0.74%)
+combinational     32.0437           85.4637        1.2205e+05          239.5518  (  21.03%)
+--------------------------------------------------------------------------------------------------
+Total            836.5313 uW        90.1694 uW     2.1242e+05 nW     1.1391e+03 uW
+1
